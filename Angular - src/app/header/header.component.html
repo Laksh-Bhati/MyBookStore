@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span>My Book Store</span>
+  <span class="space-button"></span>
+  <button *ngIf="!isLoggedIn()" mat-raised-button color="primary" routerLink="/login">Login</button>
+  <button *ngIf="isLoggedIn()" mat-raised-button color="warn" (click)="logout()">Logout</button>
+</mat-toolbar>
+
+
+<mat-toolbar color="primary" *ngIf="isLoggedIn()">
+  <button mat-raised-button color="primary" routerLink="/">Home</button> &nbsp;
+  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/myOrders">My Orders</button> &nbsp; &nbsp;
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/addNewProduct">Add New Books</button> &nbsp; &nbsp;
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/showProductDetails">Show Book's Details</button> &nbsp; &nbsp;
+  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/orderInformation">Order Details</button> &nbsp; &nbsp;
+</mat-toolbar>
